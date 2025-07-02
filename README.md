@@ -61,19 +61,6 @@ uvicorn main:app --reload --host 0.0.0.0
 
 3. Your API is now running at `0.0.0.0:8000`
 
-### Using FastAPI & TF Serve
-
-1. Get inside `api` folder
-
-```bash
-cd api
-```
-
-2. Copy the `models.config.example` as `models.config` and update the paths in file.
-3. Run the TF Serve (Update config file path below)
-
-```bash
-docker run -t --rm -p 8501:8501 -v C:/Code/potato-disease-classification:/potato-disease-classification tensorflow/serving --rest_api_port=8501 --model_config_file=/potato-disease-classification/models.config
 ```
 
 4. Run the FastAPI Server using uvicorn
@@ -100,41 +87,3 @@ cd frontend
 ```bash
 npm run start
 ```
-
-## Running the app
-
-1. Get inside `mobile-app` folder
-
-```bash
-cd mobile-app
-```
-
-2. Copy the `.env.example` as `.env` and update `URL` to API URL if needed.
-
-3. Run the app (android/iOS)
-
-```bash
-npm run android
-```
-
-or
-
-```bash
-npm run ios
-```
-
-4. Creating public ([signed APK](https://reactnative.dev/docs/signed-apk-android))
-
-
-## Creating the TF Lite Model
-
-1. Run Jupyter Notebook in Browser.
-
-```bash
-jupyter notebook
-```
-
-2. Open `training/tf-lite-converter.ipynb` in Jupyter Notebook.
-3. In cell #2, update the path to dataset.
-4. Run all the Cells one by one.
-5. Model would be saved in `tf-lite-models` folder.
